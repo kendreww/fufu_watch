@@ -35,7 +35,7 @@ jobs:
 
       - name: Send test notification
         if: ${{ inputs.test_email }}
-        run: python fufu_watch_v2.py --test-email
+        run: python fufu_watch_v_github.py --test-email
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           MAIL_TO_RESEND: ${{ secrets.MAIL_TO_RESEND }}
@@ -43,7 +43,7 @@ jobs:
 
       - name: Check availability
         if: ${{ !inputs.test_email }}
-        run: python fufu_watch_v2.py --debug
+        run: python fufu_watch_v_github.py --debug
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           MAIL_TO_RESEND: ${{ secrets.MAIL_TO_RESEND }}
