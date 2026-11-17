@@ -15,7 +15,7 @@ from playwright.sync_api import sync_playwright
 
 # ---------------- EDIT THESE ----------------
 URL = "https://go-kpgluxuryhotels.reservation.jp/en/hotels/fufukawaguchiko/plans/10099814?room_id=10030913&checkin_date=20270228&checkout_date=20270301&adults=2&children=0&rooms=1&show_facility=1"
-WATCH_DATES = {"2027-02-28", "2027-03-01", "2027-03-02", "2027-03-03", "2027-03-04", "2027-03-05", "2027-03-06"}
+WATCH_DATES = {"2027-03-01", "2027-03-02", "2027-03-03", "2027-03-04", "2027-03-05"}
 SMTP_USER = os.environ.get("SMTP_USER", "")      # your Gmail address, e.g. "kendr@gmail.com"
 SMTP_PASS = os.environ.get("SMTP_PASS", "")      # Gmail App Password (16 letters) from myaccount.google.com/apppasswords
 MAIL_TO = os.environ.get("MAIL_TO", "")        # leave "" to send to yourself
@@ -170,7 +170,7 @@ def check():
             print("No notification got through; will retry next check.")
             return
     else:
-        print(time.strftime("%F %T"), f"nothing new for 2/28-3/6 ({len(mine)} open)")
+        print(time.strftime("%F %T"), f"nothing new for 3/1-3/5 ({len(mine)} open)")
     STATE.write_text(json.dumps(sorted(mine)))
 
 if __name__ == "__main__":
